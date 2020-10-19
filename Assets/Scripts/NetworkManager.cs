@@ -19,7 +19,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public void ConnectToMaster()
     {
         PhotonNetwork.OfflineMode = false;           //true would "fake" an online connection
-        PhotonNetwork.NickName = "Player" + Random.Range(0, 100).ToString() + Random.Range(0, 100).ToString();       //to set a player name
+        PhotonNetwork.NickName = "Player" + Random.Range(0, 100).ToString() + Random.Range(0, 100).ToString() + Random.Range(0, 50).ToString();       //to set a player name
         PhotonNetwork.AutomaticallySyncScene = true; //to call PhotonNetwork.LoadLevel()
         PhotonNetwork.GameVersion = gameVersion;            //only people with the same game version can play together
         //PhotonNetwork.ConnectToMaster(ip,port,appid); //manual connection
@@ -70,4 +70,5 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("JoinGame");
         ConnectToMaster();
     }
+    
 }

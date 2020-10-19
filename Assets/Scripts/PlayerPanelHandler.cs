@@ -24,9 +24,16 @@ public class PlayerPanelHandler : MonoBehaviourPunCallbacks
     private void SetPlayerPlane()
     {
         transform.parent = playersLobbyHandler.transform;
-        gameObject.transform.localPosition = playerLobbyBoard.GetPlayerBoardPosition();
-        playerLobbyBoard.AddPlayerCount();
-        gameObject.GetComponentInChildren<Text>().text = gameObject.GetComponent<PhotonView>().Owner.NickName;
         gameObject.name = gameObject.GetComponent<PhotonView>().Owner.NickName;
+        gameObject.transform.localPosition = playerLobbyBoard.GetPlayerBoardPosition(gameObject);
+        playerLobbyBoard.AddPlayerCount();
+        if (PhotonNetwork.LocalPlayer.NickName != gameObject.GetComponent<PhotonView>().Owner.NickName)
+        {
+            gameObject.GetComponentInChildren<Text>().text = gameObject.GetComponent<PhotonView>().Owner.NickName;
+        }
+        else
+        {
+            gameObject.GetComponentInChildren<Text>().text = gameObject.GetComponent<PhotonView>().Owner.NickName + " (YOU)";
+        }
     }
 }

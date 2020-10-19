@@ -7,15 +7,18 @@ using UnityEngine.UI;
 
 public class ReadyUp : MonoBehaviourPun, IPunObservable
 {
+    [SerializeField] private string playersLobbyHandlerName;
     [SerializeField] private Color ready;
     [SerializeField] private Color notReady;
     [SerializeField] private Image thisImage;
+    private PlayerLobbyBoard playerLobbyBoard;
     private PhotonView viewer;
     private bool iAmReady = false;
     
     void Start()
     {
         viewer = GetComponentInParent<PhotonView>();
+        playerLobbyBoard = GameObject.Find(playersLobbyHandlerName).GetComponent<PlayerLobbyBoard>();
     }
     void Update()
     {
@@ -51,7 +54,12 @@ public class ReadyUp : MonoBehaviourPun, IPunObservable
             else
             {
                 iAmReady = true;
+
             }
         }
+    }
+    public bool GetIAmReady()
+    {
+        return iAmReady;
     }
 }

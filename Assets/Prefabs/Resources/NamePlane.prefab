@@ -93,7 +93,8 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1204855438834900975}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -275,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850d799d05e509a448e2c10a716adcb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersLobbyHandlerName: Handler
   ready: {r: 0.11035967, g: 1, b: 0, a: 1}
   notReady: {r: 1, g: 0.03875829, b: 0, a: 1}
   thisImage: {fileID: 1701755910055893254}
